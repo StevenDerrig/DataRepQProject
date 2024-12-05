@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import NavigationBar from './components/navigationbar';
 import './App.css';
+import Missions from './components/missions';
+import Aircraft from './components/aircraft';
+import Characters from './components/characters';
+import PlayerLog from './components/playerlog';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavigationBar />
+      <Routes>
+        <Route path="/missions" element={<Missions />} />
+        <Route path="/aircraft" element={<Aircraft />} />
+        <Route path="/characters" element={<Characters />} />
+        <Route path="/playerlog" element={<PlayerLog />} />
+      </Routes>
+    </Router>
   );
 }
 
