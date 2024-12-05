@@ -1,6 +1,8 @@
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/navigationbar';
 import './App.css';
+
+import Home from './components/home';
 import Missions from './components/missions';
 import Aircraft from './components/aircraft';
 import Characters from './components/characters';
@@ -11,6 +13,7 @@ function App() {
     <Router>
       <NavigationBar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/missions" element={<Missions />} />
         <Route path="/aircraft" element={<Aircraft />} />
         <Route path="/characters" element={<Characters />} />
