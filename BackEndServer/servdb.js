@@ -12,41 +12,12 @@ mongoose.connect('mongodb+srv://ProAd:acx2006@clusterxca.rgimj.mongodb.net/?retr
         console.error('Error connecting to MongoDB', err);
     });
 
-//Schema for the database
-const missionSchema = new mongoose.Schema({
-    missionName: String,
-    missionNumber: String,
-    missionDescription: String,
-    missionObjectives: String,
-    missionLocation: String,
-    missionImg: String,
-    missionOST: String,
-});
+//Importing the schema models for the database
+const Aircraftmod = require('./models/Aircraftmod');
+const Charactermod = require('./models/Charactermod');
+const Missionmod = require('./models/Missionmod');
+const PlayerLogmod = require('./models/PlayerLogmod');
 
-const aircraftSchema = new mongoose.Schema({
-    aircraftName: String,
-    aircraftImg: String,
-    aircraftDescription: String,
-    aircraftStats: String,
-    aircraftWeapons: String,
-    aircraftPrice: Number,
-    aircraftUnlock: String,
-});
-
-const characterSchema = new mongoose.Schema({
-    characterName: String,
-    characterImg: String,
-    characterDescription: String,
-    characterRole: String,
-});
-
-const playerLogSchema = new mongoose.Schema({
-    plMissionName: String,
-    plMissionNumber: String,
-    plMissionScore: Number,
-    plMissionTime: String,
-    plMissionRank: String,
-});
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
