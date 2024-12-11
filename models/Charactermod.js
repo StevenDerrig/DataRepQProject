@@ -8,6 +8,6 @@ const characterSchema = new mongoose.Schema({
     characterRole: String,
 });
 
-//Exporting the schema
+//Exporting the schema & naming the collection in the database
 const Charactermod = mongoose.model('Characters', characterSchema);
 module.exports = Charactermod;

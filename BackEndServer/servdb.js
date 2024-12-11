@@ -18,6 +18,18 @@ const Aircraftmod = require('./models/Aircraftmod');
 const Charactermod = require('./models/Charactermod');
 const PlayerLogmod = require('./models/PlayerLogmod');
 
+// CORS implementation
+const cors = require('cors');
+app.use(cors());
+
+//Allow for requests from any origin/domain - specify allowed methds and headers
+app.use(function (req, res, next){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

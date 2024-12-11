@@ -11,6 +11,6 @@ const aircraftSchema = new mongoose.Schema({
     aircraftUnlock: String,
 });
 
-//Exporting the schema
+//Exporting the schema & naming the collection in the database
 const Aircraftmod = mongoose.model('Aircrafts', aircraftSchema);
 module.exports = Aircraftmod;

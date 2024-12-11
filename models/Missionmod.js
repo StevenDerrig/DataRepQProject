@@ -7,10 +7,9 @@ const missionSchema = new mongoose.Schema({
     missionDescription: String,
     missionObjectives: String,
     missionLocation: String,
-    missionImg: String,
     missionOST: String,
 });
 
-//Exporting the schema
+//Exporting the schema & naming the collection in the database
 const Missionmod = mongoose.model('Missions', missionSchema);
 module.exports = Missionmod;

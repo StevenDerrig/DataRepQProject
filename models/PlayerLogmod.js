@@ -9,6 +9,6 @@ const playerLogSchema = new mongoose.Schema({
     plMissionRank: String,
 });
 
-//Exporting the schema
+//Exporting the schema & naming the collection in the database
 const PlayerLogmod = mongoose.model('PlayerLogs', playerLogSchema);
 module.exports = PlayerLogmod;
