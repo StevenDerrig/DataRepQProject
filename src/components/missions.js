@@ -1,5 +1,5 @@
 //Hooks to get the data from server/api
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import MissionH from "./MissionH";
 

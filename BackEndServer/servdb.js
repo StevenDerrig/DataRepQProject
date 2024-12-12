@@ -62,8 +62,14 @@ app.get('/api/missions', async (req, res)=>{
 });
 //Edit a mission
 app.put('/api/missions/:id', async (req, res) => {
-    const mission = await Missionmod.findById(req.params.id, req.body, { new: true});
-    res.send(mission);
+    const missions = await Missionmod.findByIdAndUpdate(req.params.id, req.body, { new: true});
+    res.send(missions);
+});
+//Delete a mission
+app.delete('/api/missions/:id', async (req, res) => {
+    console.log('Deleting mission with id: ', req.params.id);
+    const missions = await Missionmod.findByIdAndDelete(req.params.id);
+    res.status(200).send({message: "Mission deleted successfully", missions});
 });
 
 

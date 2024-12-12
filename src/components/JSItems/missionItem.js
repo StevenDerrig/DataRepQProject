@@ -11,6 +11,18 @@ const MissionItem = (props) => {
         console.log("Mission Item:", props.myMissions);
     }, [props.myMissions]);
 
+    const handleDelete = (e) =>{
+        e.preventDefault();
+    
+        axios.delete('http://localhost:4000/api/missions/' + props.myMissions._id)
+        .then((res)=>{
+            props.Reload();
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
+    };
+
     return (
         <div>
             <Card>
@@ -23,6 +35,7 @@ const MissionItem = (props) => {
                     <Card.Link>{props.myMissions.missionOST}</Card.Link>
                 </Card.Body>
                 <Link to={"/editMission/" + props.myMissions._id} className="btn btn-primary">Edit Mission</Link>
+                <Button className="btn btn-danger" onClick={handleDelete}>Delete Mission</Button>
             </Card>
         </div>
     );
