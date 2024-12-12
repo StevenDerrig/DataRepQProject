@@ -37,6 +37,7 @@ app.use(function (req, res, next){
 
 //CRUD operations for the database
 //Missions
+//Add a mission
 app.post('/api/missions', async (req, res) => {
     //Retive the mission details from the form request
     const { missionName, missionNumber, missionDescription, missionObjectives, missionLocation, missionOST } = req.body;
@@ -54,10 +55,15 @@ app.post('/api/missions', async (req, res) => {
     //Confirm that it has been saved
     res.status(201).json({message: "Mission added successfully", mission: newMission});
 });
-
+//Display the missions
 app.get('/api/missions', async (req, res)=>{
     const missions = await Missionmod.find();
     res.status(200).json({missions});
+});
+//Edit a mission
+app.put('/api/missions/:id', async (req, res) => {
+    const mission = await Missionmod.findById(req.params.id, req.body, { new: true});
+    res.send(mission);
 });
 
 

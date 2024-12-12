@@ -9,6 +9,7 @@ import Characters from './components/characters';
 import PlayerLog from './components/playerlog';
 
 import AddMissions from './components/CRUD/addMissions';
+import EditMission from './components/CRUD/editMission';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/addmissions" element={<AddMissions />} />
+        <Route path="/editMission/:id" element={<EditMission />} />
         <Route path="/missions" element={<Missions />} />
         <Route path="/aircraft" element={<Aircraft />} />
         <Route path="/characters" element={<Characters />} />

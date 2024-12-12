@@ -22,6 +22,7 @@ const MissionItem = (props) => {
                     <Card.Text>{props.myMissions.missionLocation}</Card.Text>
                     <Card.Link>{props.myMissions.missionOST}</Card.Link>
                 </Card.Body>
+                <Link to={"/editMission/" + props.myMissions._id} className="btn btn-primary">Edit Mission</Link>
             </Card>
         </div>
     );
