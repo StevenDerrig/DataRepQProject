@@ -12,11 +12,16 @@ mongoose.connect('mongodb+srv://ProAd:acx2006@clusterxca.rgimj.mongodb.net/?retr
         console.error('Error connecting to MongoDB', err);
     });
 
+//Parse the request body
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 //Importing the schema models for the database
-const Missionmod = require('./models/Missionmod');
-const Aircraftmod = require('./models/Aircraftmod');
-const Charactermod = require('./models/Charactermod');
-const PlayerLogmod = require('./models/PlayerLogmod');
+const Missionmod = require('../models/Missionmod');
+const Aircraftmod = require('../models/Aircraftmod');
+const Charactermod = require('../models/Charactermod');
+const PlayerLogmod = require('../models/PlayerLogmod');
 
 // CORS implementation
 const cors = require('cors');
@@ -28,6 +33,31 @@ app.use(function (req, res, next){
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
+});
+
+//CRUD operations for the database
+//Missions
+app.post('/api/missions', async (req, res) => {
+    //Retive the mission details from the form request
+    const { missionName, missionNumber, missionDescription, missionObjectives, missionLocation, missionOST } = req.body;
+    //Save to database
+    const newMission = new Missionmod({
+        missionName,
+        missionNumber,
+        missionDescription,
+        missionObjectives,
+        missionLocation,
+        missionOST
+    });
+    newMission.save();
+
+    //Confirm that it has been saved
+    res.status(201).json({message: "Mission added successfully", mission: newMission});
+});
+
+app.get('/api/missions', async (req, res)=>{
+    const missions = await Missionmod.find();
+    res.status(200).json({missions});
 });
 
 
