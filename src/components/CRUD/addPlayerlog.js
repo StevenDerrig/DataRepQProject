@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AddPlayerlog = () => {
 
     const [plMissionName, setPlMissionName] = useState("");
@@ -25,8 +28,18 @@ const AddPlayerlog = () => {
         axios.post('http://localhost:4000/api/playerlog', playerlog)
             .then(res => {
                 console.log(res.data);
+                toast.success("Player Log added successfully!");
+                //clear the form feilds
+                setPlMissionName("");
+                setPlMissionNumber("");
+                setPlMissionScore("");
+                setPlMissionTime("");
+                setPlMissionRank("");
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.error(err)
+                toast.error("Error adding player log!");
+            });
     };
 
     return (
@@ -53,6 +66,17 @@ const AddPlayerlog = () => {
                     <input type="submit" value="Add Player Log" className="btn btn-primary" />
                 </div>
             </form>
+            <ToastContainer position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                transition={Bounce} />
         </div>
     );
 };

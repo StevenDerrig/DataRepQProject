@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AddAircraft = () => {
 
     const [aircraftName, setAircraftName] = useState("");
@@ -29,8 +32,20 @@ const AddAircraft = () => {
         axios.post('http://localhost:4000/api/aircraft', aircraft)
             .then(res => {
                 console.log(res.data);
+                toast.success("Aircraft added successfully!");
+                //clear the form feilds
+                setAircraftName("");
+                setAircraftImg("");
+                setAircraftDescription("");
+                setAircraftStats("");
+                setAircraftWeapons("");
+                setAircraftPrice("");
+                setAircraftUnlock("");
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.error(err);
+                toast.error("Error adding aircraft!");
+            });
     };
 
     return (
@@ -61,6 +76,17 @@ const AddAircraft = () => {
                 </div>
                 <input type="submit" value="Add Aircraft" className="btn btn-primary" />
             </form>
+            <ToastContainer position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                transition={Bounce} />
         </div>
     );
 };

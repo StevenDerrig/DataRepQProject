@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AddCharacter = () => {
 
     const [characterName, setCharacterName] = useState("");
@@ -23,8 +26,17 @@ const AddCharacter = () => {
         axios.post('http://localhost:4000/api/character', character)
             .then(res => {
                 console.log(res.data);
+                toast.success("Character added successfully!");
+                //clear the form feilds
+                setCharacterName("");
+                setCharacterImg("");
+                setCharacterDescription("");
+                setCharacterRole("");
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.error(err)
+                toast.error("Error adding character!");
+            });
     };
 
     return (
@@ -48,6 +60,17 @@ const AddCharacter = () => {
                     <input type="submit" value="Add Character" className="btn btn-primary" />
                 </div>
             </form>
+            <ToastContainer position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                transition={Bounce} />
         </div>
     );
 }
