@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterP from "./CharacterP";
+import '../Assets/styling/backgrd.css';
 
 const Character = () => {
     const [character, setCharacter] = useState([]);
@@ -21,7 +22,7 @@ const Character = () => {
     }, []);
 
     return (
-        <div>
+        <div className="general-background-cont">
             <h3>Characters List</h3>
             <CharacterP myCharacter={character} ReloadData={reloadData} />
         </div>

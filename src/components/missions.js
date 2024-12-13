@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import MissionH from "./MissionH";
+import '../Assets/styling/backgrd.css';
 
 const Missions = () => {
     const [missions, setMissions] = useState([]);
@@ -22,7 +23,7 @@ const Missions = () => {
     }, []);
 
     return (
-        <div>
+        <div className="general-background-cont">
             <h3>Mission List</h3>
             <MissionH myMissions={missions} ReloadData={reloadData} />
         </div>

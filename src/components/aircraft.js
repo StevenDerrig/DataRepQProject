@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AircraftP from "./AircraftP";
+import '../Assets/styling/backgrd.css';
 
 const Aircraft = () => {
     const [aircraft, setAircraft] = useState([]);
@@ -21,7 +22,7 @@ const Aircraft = () => {
     }, []);
 
     return (
-        <div>
+        <div className="general-background-cont">
             <h3>Aircraft List</h3>
             <AircraftP myAircraft={aircraft} ReloadData={reloadData} />
         </div>

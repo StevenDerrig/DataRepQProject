@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import '../../Assets/styling/backgrd.css';
 
 //display Character
 const PlayerlogItem = (props) => {
@@ -24,7 +25,7 @@ const PlayerlogItem = (props) => {
     };
 
     return (
-        <div>
+        <div className="general-background-cont">
             <Card>
                 <Card.Header>{props.myPlayerlog.plMissionName}</Card.Header>
                 <Card.Body>

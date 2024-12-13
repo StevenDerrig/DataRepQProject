@@ -24,7 +24,7 @@ const MissionItem = (props) => {
     };
 
     return (
-        <div>
+        <div className="general-background-cont">
             <Card>
                 <Card.Body>
                     <Card.Title>{props.myMissions.missionName}</Card.Title>

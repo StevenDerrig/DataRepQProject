@@ -24,7 +24,7 @@ const AircraftItem = (props) => {
     };
 
     return (
-        <div>
+        <div className="general-background-cont">
             <Card>
                 <Card.Header>{props.myAircraft.aircraftName}</Card.Header>
                 <Card.Body>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PlayerLogP from "./PlayerLogP";
+import '../Assets/styling/backgrd.css';
 
 const PlayerLog = () => {
     const [playerlog, setPlayerLog] = useState([]);
@@ -21,7 +22,7 @@ const PlayerLog = () => {
     }, []);
 
     return (
-        <div>
+        <div className="general-background-cont">
             <h3>Player Log</h3>
             <PlayerLogP myPlayerlog={playerlog} ReloadData={reloadData} />
         </div>

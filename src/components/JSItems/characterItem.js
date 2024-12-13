@@ -24,7 +24,7 @@ const CharacterItem = (props) => {
     };
 
     return (
-        <div>
+        <div className="general-background-cont">
             <Card>
                 <Card.Header>{props.myCharacter.characterName}</Card.Header>
                 <Card.Body>
