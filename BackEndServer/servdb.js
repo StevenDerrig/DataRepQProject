@@ -109,6 +109,36 @@ app.delete('/api/aircraft/:id', async (req, res) => {
     res.status(200).send({ message: "Aircraft deleted successfully", aircraft });
 });
 
+//Characters
+//Add a character
+app.post('api/character', async (req, res) => {
+    const { characterName, characterImg, characterDescription, characterRole } = req.body;
+    const newCharacter = new Charactermod({
+        characterName,
+        characterImg,
+        characterDescription,
+        characterRole
+    });
+    newCharacter.save();
+    res.status(201).json({ message: "Character added successfully", character: newCharacter });
+});
+//Display the characters
+app.get('/api/character', async (req, res) => {
+    const character = await Charactermod.find();
+    res.status(200).json({ character });
+});
+//Edit a character
+app.put('/api/character/:id', async (req, res) => {
+    const character = await Charactermod.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(character);
+});
+//Delete a character
+app.delete('/api/character/:id', async (req, res) => {
+    console.log('Deleting character with id: ', req.params.id);
+    const character = await Charactermod.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Character deleted successfully", character });
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

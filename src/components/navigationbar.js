@@ -13,7 +13,9 @@ const NavigationBar = () => {
                     <Nav.Link href="/aircraft">Aircraft</Nav.Link>
                     <Nav.Link href="/addaircraft">Add Aircraft</Nav.Link>
                     <Nav.Link href="/characters">Characters</Nav.Link>
+                    <Nav.Link href="/addcharacter">Add Character</Nav.Link>
                     <Nav.Link href="/playerlog">Player Log</Nav.Link>
+                    <Nav.Link href="/addplayerlog">Add Player Log</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
