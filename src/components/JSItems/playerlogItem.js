@@ -26,12 +26,12 @@ const PlayerlogItem = (props) => {
     return (
         <div>
             <Card>
-                <Card.Header>{props.myPlayerlog.plmissionName}</Card.Header>
+                <Card.Header>{props.myPlayerlog.plMissionName}</Card.Header>
                 <Card.Body>
-                    <Card.Text>{props.myPlayerlog.plmissionNumber}</Card.Text>
-                    <Card.Text>{props.myPlayerlog.plmissionScore}</Card.Text>
-                    <Card.Text>{props.myPlayerlog.plmissionTime}</Card.Text>
-                    <Card.Text>{props.myPlayerlog.plmissionRank}</Card.Text>
+                    <Card.Text>{props.myPlayerlog.plMissionNumber}</Card.Text>
+                    <Card.Text>{props.myPlayerlog.plMissionScore}</Card.Text>
+                    <Card.Text>{props.myPlayerlog.plMissionTime}</Card.Text>
+                    <Card.Text>{props.myPlayerlog.plMissionRank}</Card.Text>
                 </Card.Body>
                 <Link to={"/editPlayerlog/" + props.myPlayerlog._id} className="btn btn-primary">Edit Player Log</Link>
                 <Button className="btn btn-danger" onClick={handleDelete}>Delete Player Log</Button>

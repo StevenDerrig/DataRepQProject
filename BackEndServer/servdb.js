@@ -155,19 +155,19 @@ app.post('/api/playerlog', async (req, res) => {
 });
 //Display the player logs
 app.get('/api/playerlog', async (req, res) => {
-    const playerLog = await PlayerLogmod.find();
-    res.status(200).json({ playerLog });
+    const playerlog = await PlayerLogmod.find();
+    res.status(200).json({ playerlog });
 });
 //Edit a player log
 app.put('/api/playerlog/:id', async (req, res) => {
-    const playerLog = await PlayerLogmod.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.send(playerLog);
+    const playerlog = await PlayerLogmod.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(playerlog);
 });
 //Delete a player log
 app.delete('/api/playerlog/:id', async (req, res) => {
     console.log('Deleting player log with id: ', req.params.id);
-    const playerLog = await PlayerLogmod.findByIdAndDelete(req.params.id);
-    res.status(200).send({ message: "Player Log deleted successfully", playerLog });
+    const playerlog = await PlayerLogmod.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Player Log deleted successfully", playerlog });
 });
 
 

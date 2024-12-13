@@ -14,7 +14,7 @@ const AddPlayerlog = () => {
 
         console.log(`Mission Name: ${plMissionName}`, `Mission Number: ${plMissionNumber}`, `Mission Score: ${plMissionScore}`, `Mission Time: ${plMissionTime}`, `Mission Rank: ${plMissionRank}`);
 
-        const playerLog = {
+        const playerlog = {
             plMissionName: plMissionName,
             plMissionNumber: plMissionNumber,
             plMissionScore: plMissionScore,
@@ -22,7 +22,7 @@ const AddPlayerlog = () => {
             plMissionRank: plMissionRank
         };
 
-        axios.post('http://localhost:4000/api/playerlog', playerLog)
+        axios.post('http://localhost:4000/api/playerlog', playerlog)
             .then(res => {
                 console.log(res.data);
             })

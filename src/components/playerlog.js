@@ -3,13 +3,13 @@ import axios from "axios";
 import PlayerLogP from "./PlayerLogP";
 
 const PlayerLog = () => {
-    const [playerLog, setPlayerLog] = useState([]);
+    const [playerlog, setPlayerLog] = useState([]);
 
     const reloadData = () => {
-        axios.get('http://localhost:4000/api/playerlog', playerLog)
+        axios.get('http://localhost:4000/api/playerlog', playerlog)
             .then((response) => {
                 console.log(response.data);
-                setPlayerLog(response.data.playerLog);
+                setPlayerLog(response.data.playerlog);
             })
             .catch((error) => {
                 console.log("Error reloading data:", error);
@@ -23,7 +23,7 @@ const PlayerLog = () => {
     return (
         <div>
             <h3>Player Log</h3>
-            <PlayerLogP myPlayerLog={playerLog} ReloadData={reloadData} />
+            <PlayerLogP myPlayerlog={playerlog} ReloadData={reloadData} />
         </div>
     );
 }
