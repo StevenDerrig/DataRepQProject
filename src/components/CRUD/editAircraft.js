@@ -1,8 +1,12 @@
-import { useState } from "react";
+//Component for editing an aircraft
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const AddAircraft = () => {
+const EditAircraft = () => {
 
+    const { id } = useParams();
     const [aircraftName, setAircraftName] = useState("");
     const [aircraftImg, setAircraftImg] = useState("");
     const [aircraftDescription, setAircraftDescription] = useState("");
@@ -10,59 +14,70 @@ const AddAircraft = () => {
     const [aircraftWeapons, setAircraftWeapons] = useState("");
     const [aircraftPrice, setAircraftPrice] = useState("");
     const [aircraftUnlock, setAircraftUnlock] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get('http://localhost:4000/api/aircraft/' + id)
+            .then((res) => {
+                setAircraftName(res.data.aircraftName);
+                setAircraftImg(res.data.aircraftImg);
+                setAircraftDescription(res.data.aircraftDescription);
+                setAircraftStats(res.data.aircraftStats);
+                setAircraftWeapons(res.data.aircraftWeapons);
+                setAircraftPrice(res.data.aircraftPrice);
+                setAircraftUnlock(res.data.aircraftUnlock);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(`Aircraft Name: ${aircraftName}`, `Aircraft Image: ${aircraftImg}`, `Aircraft Description: ${aircraftDescription}`, `Aircraft Stats: ${aircraftStats}`, `Aircraft Weapons: ${aircraftWeapons}`, `Aircraft Price: ${aircraftPrice}`, `Aircraft Unlock: ${aircraftUnlock}`);
-
         const aircraft = {
-            aircraftName: aircraftName,
-            aircraftImg: aircraftImg,
-            aircraftDescription: aircraftDescription,
-            aircraftStats: aircraftStats,
-            aircraftWeapons: aircraftWeapons,
-            aircraftPrice: aircraftPrice,
-            aircraftUnlock: aircraftUnlock
+            aircraftName, aircraftImg, aircraftDescription, aircraftStats, aircraftWeapons, aircraftPrice, aircraftUnlock
         };
 
-        axios.post('http://localhost:4000/api/aircraft', aircraft)
+        axios.put('http://localhost:4000/api/aircraft/' + id, aircraft)
             .then(res => {
                 console.log(res.data);
+                navigate("/aircraft");
             })
             .catch(err => console.error(err));
     };
 
     return (
         <div>
-            <h3>Adding Aircraft</h3>
+            <h3>Editing Aircraft</h3>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Add Aircraft Name: </label>
+                <div className="form-group">
+                    <label>Edit Aircraft Name: </label>
                     <input type="text" className="form-control" value={aircraftName} onChange={(e) => setAircraftName(e.target.value)} />
 
-                    <label>Add Aircraft Image: </label>
+                    <label>Edit Aircraft Image: </label>
                     <input type="text" className="form-control" value={aircraftImg} onChange={(e) => setAircraftImg(e.target.value)} />
 
-                    <label>Add Aircraft Description: </label>
+                    <label>Edit Aircraft Description: </label>
                     <input type="text" className="form-control" value={aircraftDescription} onChange={(e) => setAircraftDescription(e.target.value)} />
 
-                    <label>Add Aircraft Stats: </label>
+                    <label>Edit Aircraft Stats: </label>
                     <input type="text" className="form-control" value={aircraftStats} onChange={(e) => setAircraftStats(e.target.value)} />
 
-                    <label>Add Aircraft Weapons: </label>
+                    <label>Edit Aircraft Weapons: </label>
                     <input type="text" className="form-control" value={aircraftWeapons} onChange={(e) => setAircraftWeapons(e.target.value)} />
 
-                    <label>Add Aircraft Price: </label>
+                    <label>Edit Aircraft Price: </label>
                     <input type="text" className="form-control" value={aircraftPrice} onChange={(e) => setAircraftPrice(e.target.value)} />
 
-                    <label>Add Aircraft Unlock: </label>
+                    <label>Edit Aircraft Unlock: </label>
                     <input type="text" className="form-control" value={aircraftUnlock} onChange={(e) => setAircraftUnlock(e.target.value)} />
+
+                    <input type="submit" value="Edit Aircraft" className="btn btn-primary" />
                 </div>
-                <input type="submit" value="Add Aircraft" className="btn btn-primary" />
             </form>
         </div>
     );
-};
+}
 
-export default AddAircraft;
+export default EditAircraft;

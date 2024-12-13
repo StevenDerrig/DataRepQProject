@@ -10,6 +10,8 @@ import PlayerLog from './components/playerlog';
 
 import AddMissions from './components/CRUD/addMissions';
 import EditMission from './components/CRUD/editMission';
+import AddAircraft from './components/CRUD/addAircraft';
+import EditAircraft from './components/CRUD/editAircraft';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/editMission/:id" element={<EditMission />} />
         <Route path="/missions" element={<Missions />} />
         <Route path="/aircraft" element={<Aircraft />} />
+        <Route path="/addaircraft" element={<AddAircraft />} />
+        <Route path="/editAircraft/:id" element={<EditAircraft />} />
         <Route path="/characters" element={<Characters />} />
         <Route path="/playerlog" element={<PlayerLog />} />
       </Routes>

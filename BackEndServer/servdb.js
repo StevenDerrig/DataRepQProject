@@ -28,7 +28,7 @@ const cors = require('cors');
 app.use(cors());
 
 //Allow for requests from any origin/domain - specify allowed methds and headers
-app.use(function (req, res, next){
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -53,23 +53,60 @@ app.post('/api/missions', async (req, res) => {
     newMission.save();
 
     //Confirm that it has been saved
-    res.status(201).json({message: "Mission added successfully", mission: newMission});
+    res.status(201).json({ message: "Mission added successfully", mission: newMission });
 });
 //Display the missions
-app.get('/api/missions', async (req, res)=>{
+app.get('/api/missions', async (req, res) => {
     const missions = await Missionmod.find();
-    res.status(200).json({missions});
+    res.status(200).json({ missions });
 });
 //Edit a mission
 app.put('/api/missions/:id', async (req, res) => {
-    const missions = await Missionmod.findByIdAndUpdate(req.params.id, req.body, { new: true});
+    const missions = await Missionmod.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.send(missions);
 });
 //Delete a mission
 app.delete('/api/missions/:id', async (req, res) => {
     console.log('Deleting mission with id: ', req.params.id);
     const missions = await Missionmod.findByIdAndDelete(req.params.id);
-    res.status(200).send({message: "Mission deleted successfully", missions});
+    res.status(200).send({ message: "Mission deleted successfully", missions });
+});
+
+//Aircraft
+//Add an aircraft
+app.post('/api/aircraft', async (req, res) => {
+    //Retive the aircraft details from the form request
+    const { aircraftName, aircraftImg, aircraftDescription, aircraftStats, aircraftWeapons, aircraftPrice, aircraftUnlock } = req.body;
+    //Save to database
+    const newAircraft = new Aircraftmod({
+        aircraftName,
+        aircraftImg,
+        aircraftDescription,
+        aircraftStats,
+        aircraftWeapons,
+        aircraftPrice,
+        aircraftUnlock
+    });
+    newAircraft.save();
+
+    //Confirm that it has been saved
+    res.status(201).json({ message: "Aircraft added successfully", aircraft: newAircraft });
+});
+//Display the aircrafts
+app.get('/api/aircraft', async (req, res) => {
+    const aircrafts = await Aircraftmod.find();
+    res.status(200).json({ aircrafts });
+});
+//Edit an aircraft
+app.put('/api/aircraft/:id', async (req, res) => {
+    const aircrafts = await Aircraftmod.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(aircrafts);
+});
+//Delete an aircraft
+app.delete('/api/aircraft/:id', async (req, res) => {
+    console.log('Deleting aircraft with id: ', req.params.id);
+    const aircrafts = await Aircraftmod.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Aircraft deleted successfully", aircrafts });
 });
 
 
