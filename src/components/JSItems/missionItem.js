@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import '../../Assets/styling/backgrd.css';
 import '../../Assets/styling/cardstyle.css';
 
 //display Missions
@@ -26,7 +25,7 @@ const MissionItem = (props) => {
     };
 
     return (
-        <div className="general-background-cont">
+        <div className="generalDisplay">
             <Card className="generalitem-card">
                 <Card.Body className="generalitem-card-body">
                     <Card.Title className="generalitem-card-title">{props.myMissions.missionName}</Card.Title>

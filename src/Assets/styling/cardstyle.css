@@ -1,3 +1,9 @@
+.generalDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
 .generalitem-card {
     margin: 20px;
     border: 1px solid #ddd;
@@ -14,7 +20,8 @@
 .generalitem-card-body {
     background-color: #FDD79B;
     padding: 20px;
-
+    display : flex;
+    flex-direction: column;
 }
 
 .generalitem-card-text {
@@ -24,7 +31,7 @@
 .generalitem-card-buttons {
     background-color: #9BC1FD;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 10px;
 }
 

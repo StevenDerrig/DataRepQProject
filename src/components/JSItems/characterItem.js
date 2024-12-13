@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import '../../Assets/styling/cardstyle.css';
 
 //display Character
 const CharacterItem = (props) => {
@@ -24,7 +25,7 @@ const CharacterItem = (props) => {
     };
 
     return (
-        <div className="general-background-cont">
+        <div className="generalDisplay">
             <Card className="generalitem-card">
                 <Card.Header className="generalitem-card-header">{props.myCharacter.characterName}</Card.Header>
                 <Card.Body className="generalitem-card-body">
