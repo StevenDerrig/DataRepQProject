@@ -32,7 +32,7 @@ const EditCharacter = () => {
         const character = {
             characterName, characterImg, characterDescription, characterRole
         };
-
+        //send the request to the server
         axios.put('http://localhost:4000/api/character/' + id, character)
             .then(res => {
                 console.log(res.data);

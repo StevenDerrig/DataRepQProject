@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+//set port for server
 const port = 4000;
 
 //database connection and setup

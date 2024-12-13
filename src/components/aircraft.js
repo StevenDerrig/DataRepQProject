@@ -3,9 +3,10 @@ import axios from "axios";
 import AircraftP from "./AircraftP";
 import '../Assets/styling/backgrd.css';
 
+//display Aircraft
 const Aircraft = () => {
     const [aircraft, setAircraft] = useState([]);
-
+    //reload the data
     const reloadData = () => {
         axios.get('http://localhost:4000/api/aircraft', aircraft)
             .then((response) => {

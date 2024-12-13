@@ -23,7 +23,7 @@ const AircraftItem = (props) => {
                 console.log(err);
             });
     };
-
+    //return the aircraft details with card styling
     return (
         <div className="generalDisplay">
             <Card className="generalitem-card">

@@ -2,12 +2,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/navigationbar';
 import './App.css';
 
+//import main components
 import Home from './components/home';
 import Missions from './components/missions';
 import Aircraft from './components/aircraft';
 import Characters from './components/characters';
 import PlayerLog from './components/playerlog';
 
+//import CRUD components
 import AddMissions from './components/CRUD/addMissions';
 import EditMission from './components/CRUD/editMission';
 import AddAircraft from './components/CRUD/addAircraft';
@@ -17,6 +19,8 @@ import EditCharacter from './components/CRUD/editCharacter';
 import AddPlayerLog from './components/CRUD/addPlayerlog';
 import EditPlayerLog from './components/CRUD/editPlayerlog';
 
+
+//Routing for the application
 function App() {
   return (
     <Router>

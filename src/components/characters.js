@@ -3,6 +3,7 @@ import axios from "axios";
 import CharacterP from "./CharacterP";
 import '../Assets/styling/backgrd.css';
 
+//display Characters
 const Character = () => {
     const [character, setCharacter] = useState([]);
 

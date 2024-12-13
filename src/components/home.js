@@ -9,13 +9,14 @@ const Home = () => {
             overflow: 'hidden',
             textColor: 'black',
             textAlign: 'center',
+            fontWeight: 'bold',
         },
         background:{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            opacity: '0.7',
+            opacity: '0.6',
             position: 'absolute',
             width: '100%',
             height: '100%',
@@ -27,7 +28,9 @@ const Home = () => {
             <div style={styles.background}></div>
             <h1>Landing Page</h1>
             <h2>Welcome to the Ace Comabt X App!</h2>
-            <p>This app will tell you all you need to know about the game Ace Combat X. <br></br> From the missions and how to do them, the various aircraft, characters and more! <br></br> First released on the PSP back in 2006. &lt;Insert game description, who you are, what you're doing and the main features of the game.&gt;</p>
+            <p>This app will tell you all you need to know about the game Ace Combat X. <br></br> From the missions and thier details, the various aircraft, characters and more! <br></br> First released on the PSP back in 2006. Developed by Namco Bandai Games & Access Games.</p>
+            <br></br>
+            <p>Assume the role of the pilot Gryphus 1, and fight back the enemy invadors!</p>
         </div>
     );
 }

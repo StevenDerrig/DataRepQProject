@@ -23,7 +23,7 @@ const PlayerlogItem = (props) => {
             console.log(err);
         });
     };
-
+    //return the character details with card styling
     return (
         <div className="generalDisplay">
             <Card className="generalitem-card">

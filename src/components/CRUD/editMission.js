@@ -36,7 +36,7 @@ const EditMission = () => {
         const mission = {
             missionName, missionNumber, missionDescription, missionObjectives, missionLocation, missionOST
         };
-
+        //send the request to the server
         axios.put('http://localhost:4000/api/missions/' + id, mission)
             .then(res => {
                 console.log(res.data);

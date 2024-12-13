@@ -23,7 +23,7 @@ const MissionItem = (props) => {
             console.log(err);
         });
     };
-
+    //return the mission details with card styling
     return (
         <div className="generalDisplay">
             <Card className="generalitem-card">

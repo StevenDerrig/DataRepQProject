@@ -38,7 +38,7 @@ const EditAircraft = () => {
         const aircraft = {
             aircraftName, aircraftImg, aircraftDescription, aircraftStats, aircraftWeapons, aircraftPrice, aircraftUnlock
         };
-
+        //send the request to the server
         axios.put('http://localhost:4000/api/aircraft/' + id, aircraft)
             .then(res => {
                 console.log(res.data);

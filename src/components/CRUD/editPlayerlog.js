@@ -34,7 +34,7 @@ const EditPlayerlog = () => {
         const playerlog = {
             plmissionName, plmissionNumber, plmissionScore, plmissionTime, plmissionRank
         };
-
+        //send the request to the server
         axios.put('http://localhost:4000/api/playerlog/' + id, playerlog)
             .then(res => {
                 console.log(res.data);
