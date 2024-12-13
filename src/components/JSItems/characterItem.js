@@ -11,31 +11,33 @@ const CharacterItem = (props) => {
         console.log("Character Item:", props.myCharacter);
     }, [props.myCharacter]);
 
-    const handleDelete = (e) =>{
+    const handleDelete = (e) => {
         e.preventDefault();
-    
+
         axios.delete('http://localhost:4000/api/character/' + props.myCharacter._id)
-        .then((res)=>{
-            props.Reload();
-        })
-        .catch((err)=>{
-            console.log(err);
-        });
+            .then((res) => {
+                props.Reload();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (
         <div className="general-background-cont">
-            <Card>
-                <Card.Header>{props.myCharacter.characterName}</Card.Header>
-                <Card.Body>
+            <Card className="generalitem-card">
+                <Card.Header className="generalitem-card-header">{props.myCharacter.characterName}</Card.Header>
+                <Card.Body className="generalitem-card-body">
                     <blockquote className="blockquote mb-0">
-                        <img src={props.myCharacter.characterImg} alt={props.myCharacter.characterName} style={{width: '100%', height: 'auto', maxWidth: '300px'}}/>
+                        <img src={props.myCharacter.characterImg} alt={props.myCharacter.characterName} style={{ width: '100%', height: 'auto', maxWidth: '300px' }} />
                     </blockquote>
-                    <Card.Text>{props.myCharacter.characterDescription}</Card.Text>
-                    <Card.Text>{props.myCharacter.characterRole}</Card.Text>
+                    <Card.Text className="generalitem-card-text">{props.myCharacter.characterDescription}</Card.Text>
+                    <Card.Text className="generalitem-card-text">{props.myCharacter.characterRole}</Card.Text>
                 </Card.Body>
-                <Link to={"/editCharacter/" + props.myCharacter._id} className="btn btn-primary">Edit Character</Link>
-                <Button className="btn btn-danger" onClick={handleDelete}>Delete Character</Button>
+                <div className="generalitem-card-buttons">
+                    <Link to={"/editCharacter/" + props.myCharacter._id} className="btn btn-primary">Edit Character</Link>
+                    <Button className="btn btn-danger" onClick={handleDelete}>Delete Character</Button>
+                </div>
             </Card>
         </div>
     );

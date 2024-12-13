@@ -4,6 +4,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import '../../Assets/styling/backgrd.css';
+import '../../Assets/styling/cardstyle.css';
 
 //display Missions
 const MissionItem = (props) => {
@@ -25,17 +27,19 @@ const MissionItem = (props) => {
 
     return (
         <div className="general-background-cont">
-            <Card>
-                <Card.Body>
-                    <Card.Title>{props.myMissions.missionName}</Card.Title>
-                    <Card.Subtitle>{props.myMissions.missionNumber}</Card.Subtitle>
-                    <Card.Text>{props.myMissions.missionDescription}</Card.Text>
-                    <Card.Text>{props.myMissions.missionObjectives}</Card.Text>
-                    <Card.Text>{props.myMissions.missionLocation}</Card.Text>
+            <Card className="generalitem-card">
+                <Card.Body className="generalitem-card-body">
+                    <Card.Title className="generalitem-card-title">{props.myMissions.missionName}</Card.Title>
+                    <Card.Subtitle className="generalitem-card-subtitle">{props.myMissions.missionNumber}</Card.Subtitle>
+                    <Card.Text className="generalitem-card-text">{props.myMissions.missionDescription}</Card.Text>
+                    <Card.Text className="generalitem-card-text">{props.myMissions.missionObjectives}</Card.Text>
+                    <Card.Text className="generalitem-card-text">{props.myMissions.missionLocation}</Card.Text>
                     <Card.Link>{props.myMissions.missionOST}</Card.Link>
                 </Card.Body>
+                <div className="generalitem-card-buttons">
                 <Link to={"/editMission/" + props.myMissions._id} className="btn btn-primary">Edit Mission</Link>
                 <Button className="btn btn-danger" onClick={handleDelete}>Delete Mission</Button>
+                </div>
             </Card>
         </div>
     );

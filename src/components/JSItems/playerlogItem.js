@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import '../../Assets/styling/backgrd.css';
+import '../../Assets/styling/cardstyle.css';
 
 //display Character
 const PlayerlogItem = (props) => {
@@ -26,16 +27,18 @@ const PlayerlogItem = (props) => {
 
     return (
         <div className="general-background-cont">
-            <Card>
-                <Card.Header>{props.myPlayerlog.plMissionName}</Card.Header>
-                <Card.Body>
-                    <Card.Text>{props.myPlayerlog.plMissionNumber}</Card.Text>
-                    <Card.Text>{props.myPlayerlog.plMissionScore}</Card.Text>
-                    <Card.Text>{props.myPlayerlog.plMissionTime}</Card.Text>
-                    <Card.Text>{props.myPlayerlog.plMissionRank}</Card.Text>
+            <Card className="generalitem-card">
+                <Card.Header className="generalitem-card-header">{props.myPlayerlog.plMissionName}</Card.Header>
+                <Card.Body className="generalitem-card-body">
+                    <Card.Text className="generalitem-card-text">{props.myPlayerlog.plMissionNumber}</Card.Text>
+                    <Card.Text className="generalitem-card-text">{props.myPlayerlog.plMissionScore}</Card.Text>
+                    <Card.Text className="generalitem-card-text">{props.myPlayerlog.plMissionTime}</Card.Text>
+                    <Card.Text className="generalitem-card-text">{props.myPlayerlog.plMissionRank}</Card.Text>
                 </Card.Body>
+                <div className="generalitem-card-buttons">
                 <Link to={"/editPlayerlog/" + props.myPlayerlog._id} className="btn btn-primary">Edit Player Log</Link>
                 <Button className="btn btn-danger" onClick={handleDelete}>Delete Player Log</Button>
+                </div>
             </Card>
         </div>
     );
