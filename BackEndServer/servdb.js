@@ -111,7 +111,7 @@ app.delete('/api/aircraft/:id', async (req, res) => {
 
 //Characters
 //Add a character
-app.post('api/character', async (req, res) => {
+app.post('/api/character', async (req, res) => {
     const { characterName, characterImg, characterDescription, characterRole } = req.body;
     const newCharacter = new Charactermod({
         characterName,
@@ -137,6 +137,37 @@ app.delete('/api/character/:id', async (req, res) => {
     console.log('Deleting character with id: ', req.params.id);
     const character = await Charactermod.findByIdAndDelete(req.params.id);
     res.status(200).send({ message: "Character deleted successfully", character });
+});
+
+//Player Logs
+//Add a player log
+app.post('/api/playerlog', async (req, res) => {
+    const { plMissionName, plMissionNumber, plMissionScore, plMissionTime, plMissionRank } = req.body;
+    const newPlayerLog = new PlayerLogmod({
+        plMissionName,
+        plMissionNumber,
+        plMissionScore,
+        plMissionTime,
+        plMissionRank
+    });
+    newPlayerLog.save();
+    res.status(201).json({ message: "Player Log added successfully", playerLog: newPlayerLog });
+});
+//Display the player logs
+app.get('/api/playerlog', async (req, res) => {
+    const playerLog = await PlayerLogmod.find();
+    res.status(200).json({ playerLog });
+});
+//Edit a player log
+app.put('/api/playerlog/:id', async (req, res) => {
+    const playerLog = await PlayerLogmod.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(playerLog);
+});
+//Delete a player log
+app.delete('/api/playerlog/:id', async (req, res) => {
+    console.log('Deleting player log with id: ', req.params.id);
+    const playerLog = await PlayerLogmod.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Player Log deleted successfully", playerLog });
 });
 
 

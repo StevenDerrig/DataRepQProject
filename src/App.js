@@ -14,8 +14,8 @@ import AddAircraft from './components/CRUD/addAircraft';
 import EditAircraft from './components/CRUD/editAircraft';
 import AddCharacter from './components/CRUD/addCharacter';
 import EditCharacter from './components/CRUD/editCharacter';
-import AddPlayerLog from './components/CRUD/addPlayerLog';
-import EditPlayerLog from './components/CRUD/editPlayerLog';
+import AddPlayerLog from './components/CRUD/addPlayerlog';
+import EditPlayerLog from './components/CRUD/editPlayerlog';
 
 function App() {
   return (

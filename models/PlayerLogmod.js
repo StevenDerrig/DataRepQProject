@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const playerLogSchema = new mongoose.Schema({
     plMissionName: String,
     plMissionNumber: String,
-    plMissionScore: Number,
+    plMissionScore: String,
     plMissionTime: String,
     plMissionRank: String,
 });
