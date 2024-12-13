@@ -31,10 +31,11 @@ const AircraftItem = (props) => {
                     <blockquote className="blockquote mb-0">
                         <img src={props.myAircraft.aircraftImg} alt={props.myAircraft.aircraftName} style={{width: '100%', height: 'auto', maxWidth: '300px'}}/>
                     </blockquote>
-                    <Card.Subtitle>{props.myAircraft.aircraftImg}</Card.Subtitle>
-                    <Card.Text>{props.myAircraft.aircraftType}</Card.Text>
-                    <Card.Text>{props.myAircraft.aircraftLocation}</Card.Text>
-                    <Card.Text>{props.myAircraft.aircraftOST}</Card.Text>
+                    <Card.Text>{props.myAircraft.aircraftDescription}</Card.Text>
+                    <Card.Text>{props.myAircraft.aircraftStats}</Card.Text>
+                    <Card.Text>{props.myAircraft.aircraftWeapons}</Card.Text>
+                    <Card.Text>{props.myAircraft.aircraftPrice}</Card.Text>
+                    <Card.Text>{props.myAircraft.aircraftUnlock}</Card.Text>
                 </Card.Body>
                 <Link to={"/editAircraft/" + props.myAircraft._id} className="btn btn-primary">Edit Aircraft</Link>
                 <Button className="btn btn-danger" onClick={handleDelete}>Delete Aircraft</Button>

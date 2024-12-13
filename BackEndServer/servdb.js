@@ -94,19 +94,19 @@ app.post('/api/aircraft', async (req, res) => {
 });
 //Display the aircrafts
 app.get('/api/aircraft', async (req, res) => {
-    const aircrafts = await Aircraftmod.find();
-    res.status(200).json({ aircrafts });
+    const aircraft = await Aircraftmod.find();
+    res.status(200).json({ aircraft });
 });
 //Edit an aircraft
 app.put('/api/aircraft/:id', async (req, res) => {
-    const aircrafts = await Aircraftmod.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.send(aircrafts);
+    const aircraft = await Aircraftmod.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(aircraft);
 });
 //Delete an aircraft
 app.delete('/api/aircraft/:id', async (req, res) => {
     console.log('Deleting aircraft with id: ', req.params.id);
-    const aircrafts = await Aircraftmod.findByIdAndDelete(req.params.id);
-    res.status(200).send({ message: "Aircraft deleted successfully", aircrafts });
+    const aircraft = await Aircraftmod.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Aircraft deleted successfully", aircraft });
 });
 
 

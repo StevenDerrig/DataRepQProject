@@ -7,7 +7,7 @@ const aircraftSchema = new mongoose.Schema({
     aircraftDescription: String,
     aircraftStats: String,
     aircraftWeapons: String,
-    aircraftPrice: Number,
+    aircraftPrice: String,
     aircraftUnlock: String,
 });
 
